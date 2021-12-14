@@ -3,27 +3,22 @@ class TextClock extends BaseClock {
     super();
   }
 
-  draw(x, y, width, height) {
-    push();
-    rect(x, y, width, height);
-    textSize(12);
-    textAlign(LEFT, TOP);
-    text("Text", x + 4, y + 4);
-    let theText = "";
-    theText += (this.date.getHours() + 1).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
-    theText += ":";
-    theText += (this.date.getMinutes()).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
-    theText += ":";
-    theText += (this.date.getSeconds()).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
-    theText += ".";
-    theText += (this.date.getMilliseconds()).toLocaleString("en-US", {minimumIntegerDigits: 3, useGrouping: false});
-    let theSize = width;
-    textSize(theSize);
-    while (textWidth(theText) > width - 6) {
-      theSize --;
-      textSize(theSize);
-    }
-    text(theText, x + 4, y + 16);
-    pop();
+  update() {
+    // https://stackoverflow.com/questions/11854958/how-to-call-a-parent-method-from-child-class-in-javascript
+    BaseClock.prototype.update.call(this);
+    // Pull numbers
+    let hours = this.date.getHours() + 1;
+    let minutes = this.date.getMinutes();
+    let seconds = this.date.getSeconds();
+    let millis = this.date.getMilliseconds();
+    // Format text
+    this.text = "";
+    this.text += hours.toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
+    this.text += ":";
+    this.text += minutes.toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
+    this.text += ":";
+    this.text += seconds.toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
+    this.text += ".";
+    this.text += millis.toLocaleString("en-US", {minimumIntegerDigits: 3, useGrouping: false});
   }
 }

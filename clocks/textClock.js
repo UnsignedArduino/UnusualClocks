@@ -1,6 +1,7 @@
 class TextClock extends BaseClock {
   constructor() {
     super();
+    this.label = "Text";
   }
 
   update() {

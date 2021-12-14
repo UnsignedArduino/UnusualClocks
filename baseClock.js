@@ -2,6 +2,7 @@ class BaseClock {
   constructor() {
     this.date = new Date();
     this.text = "";
+    this.label = "";
   }
 
   update() {
@@ -14,7 +15,7 @@ class BaseClock {
     rect(x, y, width, height);
     textSize(12);
     textAlign(LEFT, TOP);
-    text("Text", x + 4, y + 4);
+    text(this.label, x + 4, y + 4);
     let theSize = width;
     textSize(theSize);
     while (textWidth(this.text) > width - 6) {

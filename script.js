@@ -22,6 +22,7 @@ function setup() {
   createCanvas(width, height);
   // Make clocks
   makeClock(TextClock, 10, 10, 200, 50);
+  makeClock(HexClock, 220, 10, 200, 50);
 }
 
 function draw() {

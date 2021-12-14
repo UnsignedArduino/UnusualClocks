@@ -3,12 +3,14 @@ let height;
 
 let clocks = [];
 
-let textClock;
-
 // Helper function to construct class and add to list 
 // of clocks
-function makeClock(clockClass) {
+function makeClock(clockClass, x, y, width, height) {
   let clock = new clockClass()
+  clock.x = x;
+  clock.y = y;
+  clock.width = width;
+  clock.height = height;
   clocks.push(clock);
   return clock;
 }
@@ -19,15 +21,14 @@ function setup() {
   height = windowHeight - 25;
   createCanvas(width, height);
   // Make clocks
-  textClock = makeClock(TextClock);
+  makeClock(TextClock, 10, 10, 200, 50);
 }
 
 function draw() {
   background(240);
-  // Update all clocks
+  // Update and draw all the clocks
   for (let clock of clocks) {
     clock.update();
+    clock.draw(clock.x, clock.y, clock.width, clock.height);
   }
-  // Draw all the clocks
-  textClock.draw(10, 10, 200, 50);
 }

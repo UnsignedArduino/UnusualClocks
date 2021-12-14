@@ -3,6 +3,8 @@ let height;
 
 let clocks = [];
 
+let clockFont;
+
 // Helper function to construct class and add to list 
 // of clocks
 function makeClock(clockClass, x, y, width, height) {
@@ -13,6 +15,10 @@ function makeClock(clockClass, x, y, width, height) {
   clock.height = height;
   clocks.push(clock);
   return clock;
+}
+
+function preload() {
+  clockFont = loadFont("assets/UbuntuMono-Regular.ttf");
 }
 
 function setup() {

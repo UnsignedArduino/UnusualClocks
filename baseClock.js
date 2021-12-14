@@ -17,6 +17,7 @@ class BaseClock {
     textAlign(LEFT, TOP);
     text(this.label, x + 4, y + 4);
     let theSize = width;
+    textFont(clockFont);
     textSize(theSize);
     while (textWidth(this.text) > width - 6) {
       theSize --;

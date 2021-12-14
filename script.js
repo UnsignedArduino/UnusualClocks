@@ -1,8 +1,17 @@
 let width;
 let height;
 
-const allClockClasses = [TextClock];
 let clocks = [];
+
+let textClock;
+
+// Helper function to construct class and add to list 
+// of clocks
+function makeClock(clockClass) {
+  let clock = new clockClass()
+  clocks.push(clock);
+  return clock;
+}
 
 function setup() {
   // Make it fit nicely on screen without scrolling
@@ -10,9 +19,7 @@ function setup() {
   height = windowHeight - 25;
   createCanvas(width, height);
   // Make clocks
-  for (let ClockClass of allClockClasses) {
-    clocks.push(new ClockClass());
-  }
+  textClock = makeClock(TextClock);
 }
 
 function draw() {
@@ -22,7 +29,5 @@ function draw() {
     clock.update();
   }
   // Draw all the clocks
-  for (let clock of clocks) {
-    clock.draw(10, 10, 200, 40);
-  }
+  textClock.draw(10, 10, 200, 50);
 }

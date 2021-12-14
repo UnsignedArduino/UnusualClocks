@@ -29,6 +29,7 @@ function setup() {
   // Make clocks
   makeClock(TextClock, 10, 10, 200, 50);
   makeClock(HexClock, 220, 10, 200, 50);
+  makeClock(OctClock, 430, 10, 200, 50);
 }
 
 function draw() {

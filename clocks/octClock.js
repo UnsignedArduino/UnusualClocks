@@ -1,7 +1,7 @@
-class HexClock extends BaseClock {
+class OctClock extends BaseClock {
   constructor() {
     super();
-    this.label = "Hexadecimal";
+    this.label = "Octal";
   }
 
   update() {
@@ -14,19 +14,19 @@ class HexClock extends BaseClock {
     let millis = this.date.getMilliseconds();
     // Format text
     this.text = "";
-    let hoursStr = hours.toString(16);
+    let hoursStr = hours.toString(8);
     this.text += (hoursStr.length < 2 ? "0" : "") + hoursStr;
     this.text += ":";
-    let minutesStr = minutes.toString(16);
+    let minutesStr = minutes.toString(8);
     this.text += (minutesStr.length < 2 ? "0" : "") + minutesStr;
     this.text += ":";
-    let secondsStr = seconds.toString(16);
+    let secondsStr = seconds.toString(8);
     this.text += (secondsStr.length < 2 ? "0" : "") + secondsStr;
     this.text += ".";
-    let millisStr = millis.toString(16);
+    let millisStr = millis.toString(8);
+    this.text += millisStr.length < 4 ? "0" : "";
     this.text += millisStr.length < 3 ? "0" : "";
     this.text += millisStr.length < 2 ? "0" : "";
     this.text += millisStr;
-    this.text = this.text.toLocaleUpperCase("en-US");
   }
 }

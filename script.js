@@ -1,5 +1,5 @@
 /* TODO:
- - math equations clock (+, -, *, /)
+ - math equations clock do * and /
 */
 
 "use strict";
@@ -83,6 +83,7 @@ function setup() {
   makeClock(MorseClock, 10, 310, 410, 20);
   makeClock(ASCIIClock, 10, 340, 200, 30);
   makeClock(ScientificClock, 220, 340, 200, 30);
+  makeClock(MathClock, 10, 380, 410, 30);
   resize();
 }
 

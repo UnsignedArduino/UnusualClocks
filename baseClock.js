@@ -17,8 +17,8 @@ class BaseClock {
     return "0".repeat(length - theString.length) + theString;
   }
 
-  update() {
-    this.date = new Date();
+  update(dateToUse) {
+    this.date = dateToUse;
     // Inherited classes will call this method and update this.text with the date
   }
 

@@ -1,4 +1,6 @@
 /* TODO:
+ - have to pass in date and then compute off that
+   so everything is in sync
  - math equations clock do * and /
 */
 
@@ -78,12 +80,12 @@ function setup() {
   makeClock(TextClock, 10, 10, 410, 90);
   makeClock(HexClock, 10, 110, 200, 50);
   makeClock(OctClock, 220, 110, 200, 50);
-  makeClock(BinClock, 10, 170, 410, 40);
-  makeClock(UTCClock, 10, 220, 410, 80);
-  makeClock(MorseClock, 10, 310, 410, 20);
-  makeClock(ASCIIClock, 10, 340, 200, 30);
-  makeClock(ScientificClock, 220, 340, 200, 30);
-  makeClock(MathClock, 10, 380, 410, 30);
+  makeClock(BinClock, 10, 170, 410, 30);
+  makeClock(UTCClock, 10, 210, 410, 80);
+  makeClock(MorseClock, 10, 300, 410, 20);
+  makeClock(ASCIIClock, 10, 330, 200, 30);
+  makeClock(ScientificClock, 220, 330, 200, 30);
+  makeClock(MathClock, 10, 370, 410, 30);
   resize();
 }
 
@@ -95,8 +97,9 @@ function draw() {
   }
   background(240);
   // Update and draw all the clocks
+  let now = new Date();
   for (let clock of clocks) {
-    clock.update();
+    clock.update(now);
     clock.draw(clock.x * scale, clock.y * scale, 
                clock.width * scale, clock.height * scale);
   }

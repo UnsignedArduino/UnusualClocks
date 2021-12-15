@@ -6,9 +6,9 @@ class ScientificClock extends BaseClock {
     this.label = "Scientific";
   }
 
-  update() {
+  update(dateToUse) {
     // https://stackoverflow.com/questions/11854958/how-to-call-a-parent-method-from-child-class-in-javascript
-    BaseClock.prototype.update.call(this);
+    BaseClock.prototype.update.call(this, dateToUse);
     // Pull numbers and convert to string
     let hours = Number(this.date.getHours() + 1).toExponential();
     let minutes = Number(this.date.getMinutes()).toExponential();

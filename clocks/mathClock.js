@@ -58,9 +58,9 @@ class MathClock extends BaseClock {
     }
   }
 
-  update() {
+  update(dateToUse) {
     // https://stackoverflow.com/questions/11854958/how-to-call-a-parent-method-from-child-class-in-javascript
-    BaseClock.prototype.update.call(this);
+    BaseClock.prototype.update.call(this, dateToUse);
     // Pull numbers
     let hours = this.date.getHours() + 1;
     let minutes = this.date.getMinutes();

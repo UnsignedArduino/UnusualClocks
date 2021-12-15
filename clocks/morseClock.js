@@ -13,7 +13,7 @@ const morseCodes = new Map([
   ["9", "_ _ _ _ . "],
   [":", "_ _ _ . . . "],
   [".", ". _ . _ . _ "]
-])
+]);
 
 class MorseClock extends TextClock {
   constructor() {
@@ -29,7 +29,7 @@ class MorseClock extends TextClock {
     for (let c of this.text) {
       newText += morseCodes.get(c);
     }
-    this.text = newText;
+    this.text = newText.trim();
   }
 
   draw(x, y, width, height) {

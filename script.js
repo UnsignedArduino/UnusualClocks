@@ -1,5 +1,4 @@
 /* TODO:
- - ascii clock like morse clock
  - math equations clock (+, -, *, /)
 */
 
@@ -82,6 +81,7 @@ function setup() {
   makeClock(BinClock, 10, 170, 410, 40);
   makeClock(UTCClock, 10, 220, 410, 80);
   makeClock(MorseClock, 10, 310, 410, 20);
+  makeClock(ASCIIClock, 10, 340, 410, 40);
   resize();
 }
 

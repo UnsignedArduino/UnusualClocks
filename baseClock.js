@@ -9,6 +9,7 @@ class BaseClock {
     // Used for determining if we need to recalculate text sizes
     this.textSize = 0;
     this.lastWidth = 0;
+    this.lastText = "";
   }
 
   addZerosBefore(theString, length) {
@@ -44,7 +45,13 @@ class BaseClock {
     textSize(this.textSize);
     textAlign(LEFT, BOTTOM);
     // Calculate text size if needed
-    if (this.lastWidth != width) {
+    if (this.lastText.length != this.text.length || 
+        this.lastWidth != width) {
+      console.log(this.label + " text size changed");
+      console.log(this.lastText + " -> " + this.text);
+      console.log(this.lastText.length + " -> " + this.text.length);
+      console.log("");
+      this.lastText = this.text;
       this.lastWidth = width;
       this.recalculateTextSize(width);
     }

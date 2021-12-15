@@ -12,6 +12,6 @@ class UTCClock extends BaseClock {
     // Pull numbers
     let utc = (new Date().getTime()) / 1000;
     // Format text
-    this.text = utc.toLocaleString("en-US", {minimumIntegerDigits: 3, useGrouping: false});
+    this.text = utc.toFixed(3);
   }
 }

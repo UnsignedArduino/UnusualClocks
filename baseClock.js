@@ -13,7 +13,7 @@ class BaseClock {
   draw(x, y, width, height) {
     push();
     rect(x, y, width, height);
-    textSize(12);
+    textSize(height / 4);
     textAlign(LEFT, TOP);
     text(this.label, x + 4, y + 4);
     let theSize = width;
@@ -23,7 +23,8 @@ class BaseClock {
       theSize --;
       textSize(theSize);
     }
-    text(this.text, x + 4, y + 16);
+    textAlign(LEFT, BOTTOM);
+    text(this.text, x + 4, y + height - 4);
     pop();
   }
 }

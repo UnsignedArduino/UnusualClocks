@@ -1,5 +1,4 @@
 /* TODO:
- - unix clock 
  - morse code (prints out . or - like binary clock)
  - math equations clock (+, -, *, /)
 */
@@ -37,15 +36,14 @@ function makeClock(clockClass, x, y, width, height) {
 
 // Recalculates size of screen
 function calculateSize() {
-  width = windowWidth - widthPad;
-  height = windowHeight - heightPad;
+  width = window.innerWidth - widthPad;
+  height = window.innerHeight - heightPad;
 }
 
 // Resize everything
 function resize() {
   // Recalculate all the scale and stuff
   calculateSize();
-  resizeCanvas(width, height);
   // Calculate right/bottom most coords
   rightest = 0;
   bottomest = 0;
@@ -60,15 +58,14 @@ function resize() {
   rightest += 10;
   bottomest += 10;
   // Increase or decrease scale if needed
-  while (bottomest * scale < height && 
-         rightest * scale < width) {
+  while (rightest * scale < width) {
     scale += 0.01;
   }
-  while (bottomest * scale > height && 
-         rightest * scale > width) {
+  while (rightest * scale > width) {
     scale -= 0.01;
   }
   scale = round(scale, 3);
+  resizeCanvas(width, bottomest * scale);
 }
 
 function preload() {
@@ -83,6 +80,7 @@ function setup() {
   makeClock(HexClock, 10, 110, 200, 50);
   makeClock(OctClock, 220, 110, 200, 50);
   makeClock(BinClock, 10, 170, 410, 40);
+  makeClock(UTCClock, 10, 220, 410, 80);
   resize();
 }
 

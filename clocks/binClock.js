@@ -1,17 +1,9 @@
+"use strict";
+
 class BinClock extends BaseClock {
   constructor() {
     super();
     this.label = "Binary";
-  }
-
-  addZerosBefore(theString, length) {
-    let result = "";
-    let zeroCount = length - theString.length;
-    for (let i = 0; i < zeroCount; i++) {
-      result += "0";
-    }
-    result += theString;
-    return result;
   }
 
   update() {

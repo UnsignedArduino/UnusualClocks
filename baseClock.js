@@ -1,3 +1,5 @@
+"use strict";
+
 class BaseClock {
   constructor() {
     this.date = new Date();
@@ -7,6 +9,11 @@ class BaseClock {
     // Used for determining if we need to recalculate text sizes
     this.textSize = 0;
     this.lastWidth = 0;
+  }
+
+  addZerosBefore(theString, length) {
+    // Add enough zeros before so that it fits length
+    return "0".repeat(length - theString.length) + theString;
   }
 
   update() {

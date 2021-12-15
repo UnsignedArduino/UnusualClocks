@@ -1,3 +1,5 @@
+"use strict";
+
 class TextClock extends BaseClock {
   constructor() {
     super();

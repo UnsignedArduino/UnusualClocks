@@ -1,3 +1,5 @@
+"use strict";
+
 class HexClock extends BaseClock {
   constructor() {
     super();
@@ -15,18 +17,16 @@ class HexClock extends BaseClock {
     // Format text
     this.text = "";
     let hoursStr = hours.toString(16);
-    this.text += (hoursStr.length < 2 ? "0" : "") + hoursStr;
+    this.text += this.addZerosBefore(hoursStr, 2);
     this.text += ":";
     let minutesStr = minutes.toString(16);
-    this.text += (minutesStr.length < 2 ? "0" : "") + minutesStr;
+    this.text += this.addZerosBefore(minutesStr, 2);
     this.text += ":";
     let secondsStr = seconds.toString(16);
-    this.text += (secondsStr.length < 2 ? "0" : "") + secondsStr;
+    this.text += this.addZerosBefore(secondsStr, 2);
     this.text += ".";
     let millisStr = millis.toString(16);
-    this.text += millisStr.length < 3 ? "0" : "";
-    this.text += millisStr.length < 2 ? "0" : "";
-    this.text += millisStr;
+    this.text += this.addZerosBefore(millisStr, 3);
     this.text = this.text.toLocaleUpperCase("en-US");
   }
 }

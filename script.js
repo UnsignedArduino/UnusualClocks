@@ -1,15 +1,10 @@
 /* TODO:
- - base 2 (binary) clock 
+ - unix clock 
  - morse code (prints out . or - like binary clock)
  - math equations clock (+, -, *, /)
- - have them scale to screen size
- - make "box priority" which makes some bigger then others
-    - decimal should be 3x
-    - hex should be 2x
-    - oct should be 1x
-    - bin should be 0.5x
-    - morse should be 0.5x
 */
+
+"use strict";
 
 const widthPad = 20;
 const heightPad = 25;
@@ -40,11 +35,13 @@ function makeClock(clockClass, x, y, width, height) {
   return clock;
 }
 
+// Recalculates size of screen
 function calculateSize() {
   width = windowWidth - widthPad;
   height = windowHeight - heightPad;
 }
 
+// Resize everything
 function resize() {
   // Recalculate all the scale and stuff
   calculateSize();

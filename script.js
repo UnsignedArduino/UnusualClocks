@@ -1,9 +1,3 @@
-/* TODO:
- - have to pass in date and then compute off that
-   so everything is in sync
- - math equations clock do * and /
-*/
-
 "use strict";
 
 const widthPad = 20;

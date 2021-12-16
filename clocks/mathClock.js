@@ -6,7 +6,10 @@ const operators = new Map([
   ["×", (num1, num2) => { return num1 * num2; }],
   ["÷", (num1, num2) => { return num1 / num2; }]
 ]);
-const operatorChars = ["+", "-", /*"×", "÷"*/];
+// Ones we can easily generate equations for
+const simpleOperatorChars = ["+", "-"];
+// All available operators
+const operatorChars = ["+", "-", "×", "÷"];
 const operatorInverseChars = new Map([
   ["+", "-"],
   ["-", "+"],
@@ -25,6 +28,10 @@ class Equation {
   toString() {
     return "(" + this.left + " " + this.operator + " " + this.right + ")";
   }
+
+  evaluate() {
+    return operators.get(this.operator)(this.left, this.right)
+  }
 }
 
 class MathClock extends BaseClock {
@@ -40,13 +47,23 @@ class MathClock extends BaseClock {
     this.lastSecondEquation = "";
   }
 
-  equationForNum(answer) {
-    let equation = new Equation("", "", "");
-    let op = random(operatorChars);
-    let inverseOp = operatorInverseChars.get(op);
-    equation = new Equation("", op, Math.round(random(1, answer)));
-    equation.left = Math.round(operators.get(inverseOp)(answer, equation.right));
-    return equation.toString();
+  equationForNum(answer, useEasyOps=false) {
+    // Try up to 10 times to make a random equation
+    for (let i = 0; i < 5; i ++) {
+      // Choose a random operator
+      let op = random(useEasyOps ? simpleOperatorChars : operatorChars);
+      // Get the inverse operator to solve for other side
+      let inverseOp = operatorInverseChars.get(op);
+      let equation = new Equation("", op, Math.round(random(1, answer)));
+      equation.left = Math.round(operators.get(inverseOp)(answer, equation.right));
+      // Since we round the number we have to check it still equals the answer
+      if (equation.evaluate() == answer) {
+        return equation.toString();
+      }
+    }
+    // Use "simple" operators so we don't delay too much
+    // making an equation
+    return this.equationForNum(answer, true);
   }
 
   addSpacesAfter(theString, length) {
@@ -87,6 +104,6 @@ class MathClock extends BaseClock {
     this.text += this.lastSecondEquation;
     this.text += ".";
     this.text += this.equationForNum(millis);
-    this.text = this.addSpacesAfter(this.text, 45);
+    this.text = this.addSpacesAfter(this.text, 50);
   }
 }

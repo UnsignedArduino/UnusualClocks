@@ -1,8 +1,3 @@
-/*
-TODO:
-- Seconds until 4294967295 (unsigned 32-bit overflow)
-*/
-
 "use strict";
 
 const widthPad = 20;
@@ -82,6 +77,7 @@ function setup() {
   makeClock(BinClock, 10, 170, 410, 30);
   makeClock(UTCClock, 10, 210, 410, 80);
   makeClock(UTCSigned32OverflowCountdownClock, 10, 300, 200, 50);
+  makeClock(UTCUnsigned32OverflowCountdownClock, 220, 300, 200, 50);
   makeClock(MorseClock, 10, 360, 410, 20);
   makeClock(ASCIIClock, 10, 390, 200, 30);
   makeClock(ScientificClock, 220, 390, 200, 30);

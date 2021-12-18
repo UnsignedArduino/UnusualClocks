@@ -32,3 +32,21 @@ class UTCSigned32OverflowCountdownClock extends BaseClock {
     this.text = utcOverflow.toFixed(3);
   }
 }
+
+class UTCUnsigned32OverflowCountdownClock extends BaseClock {
+  constructor() {
+    super();
+    this.label = "32-bit unsigned overflow countdown"
+  }
+
+  update(dateToUse) {
+    // https://stackoverflow.com/questions/11854958/how-to-call-a-parent-method-from-child-class-in-javascript
+    BaseClock.prototype.update.call(this, dateToUse);
+    // Pull numbers
+    let utc = this.date.getTime();
+    let utcOverflow = new Date(4294967295000 - utc).getTime() / 1000;
+    // Format text
+    this.text = utcOverflow.toFixed(3);
+  }
+}
+

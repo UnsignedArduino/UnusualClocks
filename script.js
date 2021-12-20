@@ -1,3 +1,17 @@
+/*
+
+TODO:
+- Add clocks for second, minute, and hour of day
+- Add clocks for second, minute, and hour left of day
+- Add clocks for second, minute, hour, and day of week
+- Add clocks for second, minute, hour, and day left of week
+- Add clocks for second, minute, hour, day, and week of month
+- Add clocks for second, minute, hour, day, and week left of month
+- Add clocks for second, minute, hour, day, week, and month of year
+- Add clocks for second, minute, hour, day, week, and month left of year
+
+*/
+
 "use strict";
 
 const widthPad = 20;
@@ -82,6 +96,12 @@ function setup() {
   makeClock(ASCIIClock, 10, 390, 200, 30);
   makeClock(ScientificClock, 220, 390, 200, 30);
   makeClock(MathClock, 10, 430, 410, 30);
+  makeClock(SecondPercentage, 10, 470, 130, 50);
+  makeClock(MinutePercentage, 150, 470, 130, 50);
+  makeClock(HourPercentage, 290, 470, 130, 50);
+  makeClock(DayPercentage, 10, 530, 130, 50);
+  makeClock(MonthPercentage, 150, 530, 130, 50);
+  makeClock(YearPercentage, 290, 530, 130, 50);
   resize();
 }
 

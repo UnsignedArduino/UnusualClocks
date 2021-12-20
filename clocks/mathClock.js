@@ -66,15 +66,6 @@ class MathClock extends BaseClock {
     return this.equationForNum(answer, true);
   }
 
-  addSpacesAfter(theString, length) {
-    if (length - theString.length <= 0) {
-      return theString;
-    } else {
-      // Add enough spaces after so that it fits length
-      return theString + " ".repeat(length - theString.length);
-    }
-  }
-
   update(dateToUse) {
     // https://stackoverflow.com/questions/11854958/how-to-call-a-parent-method-from-child-class-in-javascript
     BaseClock.prototype.update.call(this, dateToUse);

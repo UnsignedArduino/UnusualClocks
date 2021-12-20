@@ -17,6 +17,15 @@ class BaseClock {
     return "0".repeat(length - theString.length) + theString;
   }
 
+  addSpacesAfter(theString, length) {
+    if (length - theString.length <= 0) {
+      return theString;
+    } else {
+      // Add enough spaces after so that it fits length
+      return theString + " ".repeat(length - theString.length);
+    }
+  }
+
   update(dateToUse) {
     this.date = dateToUse;
     // Inherited classes will call this method and update this.text with the date

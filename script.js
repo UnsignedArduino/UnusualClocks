@@ -1,7 +1,6 @@
 /*
 
 TODO:
-- Add clocks for second, minute, and hour of day
 - Add clocks for second, minute, and hour left of day
 - Add clocks for second, minute, hour, and day of week
 - Add clocks for second, minute, hour, and day left of week
@@ -102,6 +101,9 @@ function setup() {
   makeClock(DayPercentage, 10, 530, 130, 50);
   makeClock(MonthPercentage, 150, 530, 130, 50);
   makeClock(YearPercentage, 290, 530, 130, 50);
+  makeClock(SecondOfDayClock, 10, 590, 130, 50);
+  makeClock(MinuteOfDayClock, 150, 590, 130, 50);
+  makeClock(HourOfDayClock, 290, 590, 130, 50);
   resize();
 }
 
